@@ -1,0 +1,6 @@
+frame=0,expanded=112,generated=2016,pruned=1896,depth_tree=25,tree_size=2017,best_action=UNDEFINED,branch_reward=0.909156,elapsed=1.3069
+frame=5,expanded=209,generated=2016,pruned=3532,depth_tree=25,tree_size=3889,best_action=PLAYER_A_LEFT,branch_reward=0.918316,elapsed=1.32767
+frame=10,expanded=114,generated=2016,pruned=1930,depth_tree=26,tree_size=5725,best_action=PLAYER_A_UPFIRE,branch_reward=1.79138,elapsed=1.29569
+frame=15,expanded=205,generated=2016,pruned=3472,depth_tree=26,tree_size=3907,best_action=PLAYER_A_LEFT,branch_reward=1.80038,elapsed=1.35169
+frame=20,expanded=114,generated=2016,pruned=1927,depth_tree=26,tree_size=5743,best_action=PLAYER_A_UP,branch_reward=1.80943,elapsed=1.35881
+frame=25,expanded=114,generated=2016,pruned=1928,depth_tree=26,tree_size=5707,best_action=PLAYER_A_DOWNRIGHTFIRE,branch_reward=1.83684,elapsed=1.31104

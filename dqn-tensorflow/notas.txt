@@ -1,0 +1,6 @@
+CAMBIOS SOBRE EL ORIGINAL
+
+- base.py --> checkpoint_dir() --> para que no haya problemas con las rutas (pathname)
+- config.py --> parámetros que me convengan
+- agent.py --> play2(), en otros métodos también hay trazas
+- main.py --> se ha cambiado el parámetro "is_trained" por "mode" y se ha añadido el modo "ale".

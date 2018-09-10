@@ -1,0 +1,335 @@
+  scale = 10000
+  display = False
+
+  max_step = 5000 * scale                       #int(0.5 * scale)         #modificado
+  memory_size = 20 * scale                    #10 * scale          #modificado
+
+  batch_size = 32
+  random_start = 30
+  cnn_format = 'NCHW'
+  discount = 0.99
+  target_q_update_step = 1 * scale
+  learning_rate = 0.00025
+  learning_rate_minimum = 0.00025
+  learning_rate_decay = 0.96
+  learning_rate_decay_step = 5 * scale
+
+  ep_end = 0.1
+  ep_start = 1.
+  ep_end_t = memory_size                             #memory_size     #modificado
+
+  history_length = 4
+  train_frequency = 4
+  learn_start = int(2.5 * scale)                   #0.2 * scale         #modificado
+
+  min_delta = -1
+  max_delta = 1
+
+  double_q = False
+  dueling = False
+
+  _test_step = int(2.5 * scale)                    #int(0.25 * scale)    #modificado
+  _save_step = _test_step * 1                     #_test_step * 1       #modificado
+
+
+
+
+
+============================================================================================
+============================================================================================
+============================================================================================
+============================================================================================
+============================================================================================
+============================================================================================
+
+
+
+
+
+
+python main.py --env_name=Breakout-v0 --mode=train --display=True --use_gpu=False
+ [*] GPU : 1.0000
+[2018-03-30 01:31:57,428] Making new env: Breakout-v0
+{'_save_step': 25000,
+ '_test_step': 25000,
+ 'action_repeat': 4,
+ 'backend': 'tf',
+ 'batch_size': 32,
+ 'cnn_format': 'NHWC',
+ 'discount': 0.99,
+ 'display': True,
+ 'double_q': False,
+ 'dueling': False,
+ 'env_name': 'Breakout-v0',
+ 'env_type': 'detail',
+ 'ep_end': 0.1,
+ 'ep_end_t': 200000,
+ 'ep_start': 1.0,
+ 'history_length': 4,
+ 'learn_start': 25000,
+ 'learning_rate': 0.00025,
+ 'learning_rate_decay': 0.96,
+ 'learning_rate_decay_step': 50000,
+ 'learning_rate_minimum': 0.00025,
+ 'max_delta': 1,
+ 'max_reward': 1.0,
+ 'max_step': 50000000,
+ 'memory_size': 200000,
+ 'min_delta': -1,
+ 'min_reward': -1.0,
+ 'model': 'm1',
+ 'random_start': 30,
+ 'scale': 10000,
+ 'screen_height': 84,
+ 'screen_width': 84,
+ 'target_q_update_step': 10000,
+ 'train_frequency': 4}
+WARNING:tensorflow:From /home/jorge/Descargas/DQN-tensorflow/dqn/agent.py:336 in build_dqn.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+[2018-03-30 01:31:58,815] From /home/jorge/Descargas/DQN-tensorflow/dqn/agent.py:336 in build_dqn.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+ [*] Loading checkpoints...
+ [!] Load FAILED: checkpoints/Breakout-v0/min_delta--1/max_delta-1/history_length-4/train_frequency-4/target_q_update_step-10000/double_q-False/memory_size-200000/action_repeat-4/ep_end_t-200000/dueling-False/min_reward--1.0/backend-tf/random_start-30/scale-10000/env_type-detail/learning_rate_decay_step-50000/ep_start-1.0/screen_width-84/learn_start-25000/cnn_format-NHWC/learning_rate-0.00025/batch_size-32/discount-0.99/max_step-50000000/max_reward-1.0/learning_rate_decay-0.96/learning_rate_minimum-0.00025/env_name-Breakout-v0/ep_end-0.1/model-m1/screen_height-84/
+  0%|                    | 49995/50000000 [11:50<197:05:51, 70.40it/s]
+avg_r: 0.0260, avg_l: 0.043599, avg_q: 0.391697, avg_ep_r: 0.3136, max_ep_r: 6.0000, min_ep_r: 0.0000, # game: 2073
+ [*] Saving checkpoints...
+  0%|                    | 74998/50000000 [21:14<235:36:29, 58.86it/s]
+avg_r: 0.0303, avg_l: 0.023292, avg_q: 0.239488, avg_ep_r: 0.3801, max_ep_r: 7.0000, min_ep_r: 0.0000, # game: 1989
+ [*] Saving checkpoints...
+  0%|                    | 99997/50000000 [30:35<254:24:23, 54.48it/s]
+avg_r: 0.0377, avg_l: 0.033531, avg_q: 0.250178, avg_ep_r: 0.5650, max_ep_r: 7.0000, min_ep_r: 0.0000, # game: 1669
+ [*] Saving checkpoints...
+  0%|                   | 124996/50000000 [39:56<265:36:24, 52.16it/s]
+avg_r: 0.0426, avg_l: 0.044247, avg_q: 0.487808, avg_ep_r: 0.7262, max_ep_r: 8.0000, min_ep_r: 0.0000, # game: 1468
+ [*] Saving checkpoints...
+  0%|                   | 149997/50000000 [49:22<273:27:25, 50.64it/s]
+avg_r: 0.0473, avg_l: 0.052307, avg_q: 0.634854, avg_ep_r: 0.8603, max_ep_r: 9.0000, min_ep_r: 0.0000, # game: 1374
+ [*] Saving checkpoints...
+  0%|                   | 174994/50000000 [58:48<279:04:33, 49.59it/s]
+avg_r: 0.0528, avg_l: 0.068718, avg_q: 0.838463, avg_ep_r: 1.1467, max_ep_r: 10.0000, min_ep_r: 0.0000, # game: 1152
+ [*] Saving checkpoints...
+  0%|                 | 199997/50000000 [1:08:17<283:26:05, 48.81it/s]
+avg_r: 0.0579, avg_l: 0.058328, avg_q: 1.034679, avg_ep_r: 1.4151, max_ep_r: 10.0000, min_ep_r: 0.0000, # game: 1019
+ [*] Saving checkpoints...
+  0%|                 | 224997/50000000 [1:17:47<286:51:13, 48.20it/s]
+avg_r: 0.0636, avg_l: 0.056723, avg_q: 1.251082, avg_ep_r: 1.8715, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 848
+ [*] Saving checkpoints...
+  0%|                 | 249997/50000000 [1:27:17<289:31:32, 47.73it/s]
+avg_r: 0.0630, avg_l: 0.064093, avg_q: 1.560285, avg_ep_r: 2.2812, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 690
+ [*] Saving checkpoints...
+  1%|                 | 274999/50000000 [1:36:47<291:40:49, 47.35it/s]
+avg_r: 0.0656, avg_l: 0.082716, avg_q: 1.826443, avg_ep_r: 2.3429, max_ep_r: 11.0000, min_ep_r: 0.0000, # game: 700
+ [*] Saving checkpoints...
+  1%|                 | 299999/50000000 [1:46:16<293:25:36, 47.05it/s]
+avg_r: 0.0677, avg_l: 0.093980, avg_q: 2.117088, avg_ep_r: 2.5505, max_ep_r: 16.0000, min_ep_r: 0.0000, # game: 663
+ [*] Saving checkpoints...
+  1%|                 | 324998/50000000 [1:55:47<294:57:12, 46.78it/s]
+avg_r: 0.0695, avg_l: 0.099331, avg_q: 2.336214, avg_ep_r: 2.3550, max_ep_r: 25.0000, min_ep_r: 0.0000, # game: 738
+ [*] Saving checkpoints...
+  1%|                 | 349997/50000000 [2:05:14<296:07:43, 46.57it/s]
+avg_r: 0.0631, avg_l: 0.102565, avg_q: 2.494489, avg_ep_r: 2.4336, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 648
+ [*] Saving checkpoints...
+  1%|▏                | 374997/50000000 [2:14:43<297:08:34, 46.39it/s]
+avg_r: 0.0585, avg_l: 0.108805, avg_q: 2.738799, avg_ep_r: 2.3333, max_ep_r: 20.0000, min_ep_r: 0.0000, # game: 627
+ [*] Saving checkpoints...
+  1%|▏                | 399997/50000000 [2:24:11<297:59:41, 46.23it/s]
+avg_r: 0.0559, avg_l: 0.105072, avg_q: 2.971043, avg_ep_r: 2.2864, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 611
+  1%|▏                | 424998/50000000 [2:33:38<298:42:30, 46.10it/s]
+avg_r: 0.0611, avg_l: 0.111643, avg_q: 3.204187, avg_ep_r: 2.4951, max_ep_r: 18.0000, min_ep_r: 0.0000, # game: 612
+ [*] Saving checkpoints...
+  1%|▏                | 449997/50000000 [2:43:08<299:23:49, 45.97it/s]
+avg_r: 0.0625, avg_l: 0.109000, avg_q: 3.341953, avg_ep_r: 2.3333, max_ep_r: 20.0000, min_ep_r: 0.0000, # game: 669
+ [*] Saving checkpoints...
+  1%|▏                | 474999/50000000 [2:52:37<299:58:14, 45.86it/s]
+avg_r: 0.0600, avg_l: 0.123554, avg_q: 3.454321, avg_ep_r: 2.3538, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 636
+ [*] Saving checkpoints...
+  1%|▏                | 499999/50000000 [3:02:06<300:28:47, 45.76it/s]
+avg_r: 0.0579, avg_l: 0.127989, avg_q: 3.649821, avg_ep_r: 2.2559, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 641
+  1%|▏                | 524998/50000000 [3:11:36<300:56:28, 45.67it/s]
+avg_r: 0.0620, avg_l: 0.142383, avg_q: 3.867087, avg_ep_r: 2.1678, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 715
+  1%|▏                | 549997/50000000 [3:21:05<301:20:29, 45.58it/s]
+avg_r: 0.0641, avg_l: 0.140953, avg_q: 4.047095, avg_ep_r: 2.2144, max_ep_r: 16.0000, min_ep_r: 0.0000, # game: 723
+  1%|▏                | 574996/50000000 [3:30:34<301:40:28, 45.51it/s]
+avg_r: 0.0590, avg_l: 0.134139, avg_q: 4.252344, avg_ep_r: 2.2081, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 668
+  1%|▏                | 599999/50000000 [3:40:03<301:58:30, 45.44it/s]
+avg_r: 0.0621, avg_l: 0.128446, avg_q: 4.393420, avg_ep_r: 2.2963, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 675
+ [*] Saving checkpoints...
+  1%|▏                | 624997/50000000 [3:49:34<302:15:52, 45.38it/s]
+avg_r: 0.0624, avg_l: 0.147947, avg_q: 4.464366, avg_ep_r: 2.2642, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 689
+  1%|▏                | 649999/50000000 [3:59:01<302:28:06, 45.32it/s]
+avg_r: 0.0536, avg_l: 0.156464, avg_q: 4.546591, avg_ep_r: 2.1629, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 620
+  1%|▏                | 674996/50000000 [4:08:29<302:38:28, 45.27it/s]
+avg_r: 0.0553, avg_l: 0.168663, avg_q: 4.673267, avg_ep_r: 2.2206, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 621
+  1%|▏                | 699997/50000000 [4:17:57<302:47:32, 45.23it/s]
+avg_r: 0.0494, avg_l: 0.175898, avg_q: 4.822803, avg_ep_r: 2.1022, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 587
+  1%|▏                | 724994/50000000 [4:27:25<302:56:20, 45.18it/s]
+avg_r: 0.0521, avg_l: 0.165908, avg_q: 4.955665, avg_ep_r: 2.0815, max_ep_r: 16.0000, min_ep_r: 0.0000, # game: 626
+  1%|▎                | 749998/50000000 [4:36:55<303:04:55, 45.14it/s]
+avg_r: 0.0513, avg_l: 0.154927, avg_q: 5.000416, avg_ep_r: 2.1225, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 604
+  2%|▎                | 774995/50000000 [4:46:23<303:10:55, 45.10it/s]
+avg_r: 0.0552, avg_l: 0.157020, avg_q: 5.093838, avg_ep_r: 2.3005, max_ep_r: 20.0000, min_ep_r: 0.0000, # game: 599
+ [*] Saving checkpoints...
+  2%|▎                | 799997/50000000 [4:55:53<303:17:47, 45.06it/s]
+avg_r: 0.0548, avg_l: 0.147026, avg_q: 5.186622, avg_ep_r: 2.2919, max_ep_r: 17.0000, min_ep_r: 0.0000, # game: 596
+  2%|▎                | 824997/50000000 [5:05:22<303:22:35, 45.03it/s]
+avg_r: 0.0568, avg_l: 0.146036, avg_q: 5.311834, avg_ep_r: 2.3809, max_ep_r: 17.0000, min_ep_r: 0.0000, # game: 596
+ [*] Saving checkpoints...
+  2%|▎                | 849995/50000000 [5:14:52<303:27:40, 44.99it/s]
+avg_r: 0.0572, avg_l: 0.147133, avg_q: 5.376416, avg_ep_r: 2.3853, max_ep_r: 21.0000, min_ep_r: 0.0000, # game: 597
+ [*] Saving checkpoints...
+  2%|▎                | 874994/50000000 [5:24:24<303:32:56, 44.95it/s]
+avg_r: 0.0534, avg_l: 0.170043, avg_q: 5.513521, avg_ep_r: 2.0555, max_ep_r: 11.0000, min_ep_r: 0.0000, # game: 649
+  2%|▎                | 899998/50000000 [5:33:54<303:36:34, 44.92it/s]
+avg_r: 0.0540, avg_l: 0.166308, avg_q: 5.609176, avg_ep_r: 2.1547, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 627
+  2%|▎                | 924995/50000000 [5:43:24<303:39:28, 44.89it/s]
+avg_r: 0.0548, avg_l: 0.154280, avg_q: 5.662934, avg_ep_r: 2.2204, max_ep_r: 19.0000, min_ep_r: 0.0000, # game: 617
+  2%|▎                | 949999/50000000 [5:52:55<303:42:01, 44.86it/s]
+avg_r: 0.0514, avg_l: 0.146480, avg_q: 5.676696, avg_ep_r: 2.0269, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 633
+  2%|▎                | 974997/50000000 [6:02:26<303:44:08, 44.84it/s]
+avg_r: 0.0518, avg_l: 0.151427, avg_q: 5.697177, avg_ep_r: 2.0314, max_ep_r: 11.0000, min_ep_r: 0.0000, # game: 637
+  2%|▎                | 999997/50000000 [6:11:58<303:46:36, 44.81it/s]
+avg_r: 0.0504, avg_l: 0.151234, avg_q: 5.750056, avg_ep_r: 1.9003, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 662
+  2%|▎               | 1024994/50000000 [6:21:31<303:49:11, 44.78it/s]
+avg_r: 0.0556, avg_l: 0.167539, avg_q: 5.882424, avg_ep_r: 1.9744, max_ep_r: 22.0000, min_ep_r: 0.0000, # game: 704
+  2%|▎               | 1049997/50000000 [6:31:03<303:50:36, 44.75it/s]
+avg_r: 0.0520, avg_l: 0.174074, avg_q: 5.980890, avg_ep_r: 1.9787, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 657
+  2%|▎               | 1074999/50000000 [6:40:34<303:50:58, 44.73it/s]
+avg_r: 0.0544, avg_l: 0.179965, avg_q: 6.198184, avg_ep_r: 2.2692, max_ep_r: 19.0000, min_ep_r: 0.0000, # game: 598
+  2%|▎               | 1099997/50000000 [6:50:06<303:51:03, 44.70it/s]
+avg_r: 0.0544, avg_l: 0.182383, avg_q: 6.235324, avg_ep_r: 2.2956, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 592
+ [*] Saving checkpoints...
+  2%|▎               | 1124997/50000000 [6:59:39<303:51:52, 44.68it/s]
+avg_r: 0.0574, avg_l: 0.187370, avg_q: 6.316075, avg_ep_r: 2.3736, max_ep_r: 22.0000, min_ep_r: 0.0000, # game: 605
+ [*] Saving checkpoints...
+  2%|▎               | 1149999/50000000 [7:09:13<303:52:24, 44.65it/s]
+avg_r: 0.0553, avg_l: 0.183031, avg_q: 6.482461, avg_ep_r: 2.2598, max_ep_r: 17.0000, min_ep_r: 0.0000, # game: 612
+  2%|▍               | 1174996/50000000 [7:18:46<303:52:40, 44.63it/s]
+avg_r: 0.0554, avg_l: 0.206155, avg_q: 6.604799, avg_ep_r: 2.1708, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 638
+  2%|▍               | 1199997/50000000 [7:28:20<303:52:25, 44.61it/s]
+avg_r: 0.0561, avg_l: 0.215042, avg_q: 6.658768, avg_ep_r: 2.0847, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 673
+  2%|▍               | 1224998/50000000 [7:37:55<303:52:45, 44.59it/s]
+avg_r: 0.0507, avg_l: 0.208014, avg_q: 6.714248, avg_ep_r: 1.8100, max_ep_r: 11.0000, min_ep_r: 0.0000, # game: 700
+  2%|▍               | 1249999/50000000 [7:47:30<303:53:09, 44.56it/s]
+avg_r: 0.0566, avg_l: 0.205961, avg_q: 6.796893, avg_ep_r: 2.1741, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 649
+  3%|▍               | 1274998/50000000 [7:57:08<303:54:09, 44.54it/s]
+avg_r: 0.0543, avg_l: 0.209904, avg_q: 6.853876, avg_ep_r: 2.0749, max_ep_r: 11.0000, min_ep_r: 0.0000, # game: 654
+  3%|▍               | 1299997/50000000 [8:06:44<303:54:04, 44.51it/s]
+avg_r: 0.0536, avg_l: 0.205764, avg_q: 6.915289, avg_ep_r: 2.1169, max_ep_r: 19.0000, min_ep_r: 0.0000, # game: 633
+  3%|▍               | 1324997/50000000 [8:16:22<303:54:30, 44.49it/s]
+avg_r: 0.0535, avg_l: 0.225954, avg_q: 6.935543, avg_ep_r: 1.9531, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 683
+  3%|▍               | 1349999/50000000 [8:26:00<303:54:48, 44.47it/s]
+avg_r: 0.0501, avg_l: 0.220624, avg_q: 7.009679, avg_ep_r: 1.8078, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 692
+  3%|▍               | 1374995/50000000 [8:35:37<303:54:09, 44.44it/s]
+avg_r: 0.0550, avg_l: 0.232917, avg_q: 7.027846, avg_ep_r: 2.2289, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 616
+  3%|▍               | 1399997/50000000 [8:45:15<303:54:09, 44.42it/s]
+avg_r: 0.0510, avg_l: 0.234924, avg_q: 7.104978, avg_ep_r: 1.8099, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 705
+  3%|▍               | 1424996/50000000 [8:54:54<303:54:00, 44.40it/s]
+avg_r: 0.0500, avg_l: 0.228831, avg_q: 7.102520, avg_ep_r: 1.8101, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 690
+  3%|▍               | 1449997/50000000 [9:04:33<303:53:15, 44.38it/s]
+avg_r: 0.0511, avg_l: 0.225855, avg_q: 7.175247, avg_ep_r: 2.0031, max_ep_r: 18.0000, min_ep_r: 0.0000, # game: 638
+  3%|▍               | 1474994/50000000 [9:14:12<303:52:37, 44.36it/s]
+avg_r: 0.0514, avg_l: 0.229188, avg_q: 7.269186, avg_ep_r: 2.0495, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 626
+  3%|▍               | 1499998/50000000 [9:24:01<303:56:46, 44.32it/s]
+avg_r: 0.0532, avg_l: 0.231104, avg_q: 7.293179, avg_ep_r: 2.0733, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 641
+  3%|▍               | 1524996/50000000 [9:33:43<303:57:06, 44.30it/s]
+avg_r: 0.0513, avg_l: 0.262583, avg_q: 7.380532, avg_ep_r: 2.0221, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 634
+  3%|▍               | 1549995/50000000 [9:43:25<303:57:03, 44.28it/s]
+avg_r: 0.0526, avg_l: 0.232720, avg_q: 7.464542, avg_ep_r: 2.0995, max_ep_r: 17.0000, min_ep_r: 0.0000, # game: 623
+  3%|▌               | 1574997/50000000 [9:53:08<303:56:56, 44.26it/s]
+avg_r: 0.0518, avg_l: 0.232307, avg_q: 7.420530, avg_ep_r: 2.1457, max_ep_r: 17.0000, min_ep_r: 0.0000, # game: 604
+  3%|▍              | 1599999/50000000 [10:02:53<303:57:15, 44.23it/s]
+avg_r: 0.0520, avg_l: 0.233319, avg_q: 7.470918, avg_ep_r: 1.9388, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 670
+  3%|▍              | 1624999/50000000 [10:12:38<303:58:06, 44.21it/s]
+avg_r: 0.0510, avg_l: 0.205272, avg_q: 7.882799, avg_ep_r: 1.7796, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 717
+  3%|▍              | 1649998/50000000 [10:22:24<303:58:34, 44.18it/s]
+avg_r: 0.0520, avg_l: 0.226274, avg_q: 7.676142, avg_ep_r: 1.8414, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 706
+  3%|▌              | 1674998/50000000 [10:32:09<303:58:05, 44.16it/s]
+avg_r: 0.0542, avg_l: 0.230875, avg_q: 7.647651, avg_ep_r: 2.0831, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 650
+  3%|▌              | 1699996/50000000 [10:41:54<303:57:56, 44.14it/s]
+avg_r: 0.0530, avg_l: 0.251477, avg_q: 7.661128, avg_ep_r: 1.8702, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 709
+  3%|▌              | 1724997/50000000 [10:51:46<304:00:05, 44.11it/s]
+avg_r: 0.0509, avg_l: 0.237693, avg_q: 7.673404, avg_ep_r: 1.9569, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 650
+  3%|▌              | 1749997/50000000 [11:01:31<303:59:20, 44.09it/s]
+avg_r: 0.0541, avg_l: 0.240630, avg_q: 7.643883, avg_ep_r: 1.9496, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 694
+  4%|▌              | 1774997/50000000 [11:11:18<303:58:42, 44.07it/s]
+avg_r: 0.0522, avg_l: 0.249895, avg_q: 7.621605, avg_ep_r: 1.7839, max_ep_r: 18.0000, min_ep_r: 0.0000, # game: 731
+  4%|▌              | 1799994/50000000 [11:21:03<303:57:21, 44.05it/s]
+avg_r: 0.0489, avg_l: 0.268784, avg_q: 7.789187, avg_ep_r: 1.7880, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 684
+  4%|▌              | 1824997/50000000 [11:30:52<303:57:11, 44.03it/s]
+avg_r: 0.0487, avg_l: 0.233913, avg_q: 7.881806, avg_ep_r: 1.6197, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 752
+  4%|▌              | 1849999/50000000 [11:40:38<303:55:45, 44.01it/s]
+avg_r: 0.0490, avg_l: 0.258195, avg_q: 7.879911, avg_ep_r: 1.7612, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 695
+  4%|▌              | 1874999/50000000 [11:50:24<303:53:49, 43.99it/s]
+avg_r: 0.0487, avg_l: 0.275295, avg_q: 7.920442, avg_ep_r: 1.8409, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 660
+  4%|▌              | 1899999/50000000 [12:00:10<303:51:44, 43.97it/s]
+avg_r: 0.0502, avg_l: 0.268551, avg_q: 7.944348, avg_ep_r: 1.8676, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 672
+  4%|▌              | 1924998/50000000 [12:10:00<303:51:21, 43.95it/s]
+avg_r: 0.0508, avg_l: 0.263270, avg_q: 7.945171, avg_ep_r: 1.7975, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 706
+  4%|▌              | 1949999/50000000 [12:19:50<303:50:30, 43.93it/s]
+avg_r: 0.0501, avg_l: 0.252682, avg_q: 7.988051, avg_ep_r: 1.7773, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 705
+  4%|▌              | 1974996/50000000 [12:29:37<303:48:22, 43.91it/s]
+avg_r: 0.0508, avg_l: 0.263695, avg_q: 8.068187, avg_ep_r: 1.7541, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 724
+  4%|▌              | 1999994/50000000 [12:39:24<303:45:45, 43.89it/s]
+avg_r: 0.0504, avg_l: 0.262908, avg_q: 8.073270, avg_ep_r: 1.8517, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 681
+  4%|▌              | 2024994/50000000 [12:49:11<303:43:09, 43.88it/s]
+avg_r: 0.0477, avg_l: 0.260161, avg_q: 8.124062, avg_ep_r: 1.6579, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 719
+  4%|▌              | 2049998/50000000 [12:58:59<303:40:40, 43.86it/s]
+avg_r: 0.0476, avg_l: 0.277330, avg_q: 8.139855, avg_ep_r: 1.6560, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 718
+  4%|▌              | 2074998/50000000 [13:08:46<303:37:41, 43.84it/s]
+avg_r: 0.0480, avg_l: 0.275927, avg_q: 8.183358, avg_ep_r: 1.7670, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 678
+  4%|▋              | 2099998/50000000 [13:18:36<303:35:44, 43.83it/s]
+avg_r: 0.0465, avg_l: 0.282697, avg_q: 8.246168, avg_ep_r: 1.7103, max_ep_r: 11.0000, min_ep_r: 0.0000, # game: 680
+  4%|▋              | 2124995/50000000 [13:28:27<303:34:08, 43.81it/s]
+avg_r: 0.0433, avg_l: 0.262568, avg_q: 8.351025, avg_ep_r: 1.5599, max_ep_r: 11.0000, min_ep_r: 0.0000, # game: 693
+  4%|▋              | 2149998/50000000 [13:38:17<303:31:50, 43.79it/s]
+avg_r: 0.0495, avg_l: 0.251868, avg_q: 8.389772, avg_ep_r: 1.8460, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 669
+  4%|▋              | 2174996/50000000 [13:48:08<303:29:41, 43.77it/s]
+avg_r: 0.0500, avg_l: 0.265935, avg_q: 8.368011, avg_ep_r: 1.8879, max_ep_r: 11.0000, min_ep_r: 0.0000, # game: 660
+  4%|▋              | 2199997/50000000 [13:57:55<303:25:53, 43.76it/s]
+avg_r: 0.0514, avg_l: 0.258483, avg_q: 8.356317, avg_ep_r: 1.8936, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 677
+  4%|▋              | 2224995/50000000 [14:07:42<303:21:56, 43.75it/s]
+avg_r: 0.0486, avg_l: 0.289063, avg_q: 8.415624, avg_ep_r: 1.8159, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 668
+  4%|▋              | 2249995/50000000 [14:17:29<303:17:48, 43.73it/s]
+avg_r: 0.0461, avg_l: 0.281463, avg_q: 8.440343, avg_ep_r: 1.7077, max_ep_r: 18.0000, min_ep_r: 0.0000, # game: 674
+  5%|▋              | 2274999/50000000 [14:27:22<303:15:43, 43.71it/s]
+avg_r: 0.0472, avg_l: 0.277050, avg_q: 8.493896, avg_ep_r: 1.6891, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 698
+  5%|▋              | 2299999/50000000 [14:37:10<303:12:01, 43.70it/s]
+avg_r: 0.0467, avg_l: 0.282964, avg_q: 8.475950, avg_ep_r: 1.5951, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 731
+  5%|▋              | 2324997/50000000 [14:46:57<303:07:30, 43.69it/s]
+avg_r: 0.0503, avg_l: 0.277458, avg_q: 8.433154, avg_ep_r: 1.8946, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 664
+  5%|▋              | 2349996/50000000 [14:56:44<303:02:57, 43.68it/s]
+avg_r: 0.0480, avg_l: 0.286324, avg_q: 8.410977, avg_ep_r: 1.7388, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 689
+  5%|▋              | 2374997/50000000 [15:06:31<302:58:16, 43.66it/s]
+avg_r: 0.0495, avg_l: 0.293334, avg_q: 8.466152, avg_ep_r: 1.8913, max_ep_r: 15.0000, min_ep_r: 0.0000, # game: 653
+  5%|▋              | 2399998/50000000 [15:16:19<302:53:47, 43.65it/s]
+avg_r: 0.0469, avg_l: 0.287632, avg_q: 8.482406, avg_ep_r: 1.6748, max_ep_r: 14.0000, min_ep_r: 0.0000, # game: 698
+  5%|▋              | 2424999/50000000 [15:26:11<302:50:31, 43.64it/s]
+avg_r: 0.0494, avg_l: 0.286204, avg_q: 8.578573, avg_ep_r: 1.6237, max_ep_r: 13.0000, min_ep_r: 0.0000, # game: 760
+  5%|▋              | 2449995/50000000 [15:36:03<302:47:11, 43.62it/s]
+avg_r: 0.0478, avg_l: 0.283646, avg_q: 8.579660, avg_ep_r: 1.6423, max_ep_r: 12.0000, min_ep_r: 0.0000, # game: 724
+  5%|▋              | 2470629/50000000 [15:44:09<302:43:23, 43.61it/s]^CTraceback (most recent call last):
+  File "main.py", line 72, in <module>
+    tf.app.run()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 43, in run
+    sys.exit(main(sys.argv[:1] + flags_passthrough))
+  File "main.py", line 65, in main
+    agent.train()
+  File "/home/jorge/Descargas/DQN-tensorflow/dqn/agent.py", line 59, in train
+    self.observe(screen, reward, action, terminal)
+  File "/home/jorge/Descargas/DQN-tensorflow/dqn/agent.py", line 146, in observe
+    self.q_learning_mini_batch()
+  File "/home/jorge/Descargas/DQN-tensorflow/dqn/agent.py", line 178, in q_learning_mini_batch
+    self.learning_rate_step: self.step,
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 766, in run
+    run_metadata_ptr)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 964, in _run
+    feed_dict_string, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1014, in _do_run
+    target_list, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1021, in _do_call
+    return fn(*args)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1003, in _run_fn
+    status, run_metadata)
+
