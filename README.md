@@ -18,13 +18,11 @@ Para implementar el agente, se ha tomado como base el código de dos repositorio
 El sistema puede instalarse a partir de lo especificado en los repositorios `Ale-Atari-Width` [1] y `DQN-tensorflow` [4] de Github. Sin embargo, se resumirá el proceso a continuación.
 
 Para instalar el subsistema `Ale-Atari-Width` se ejecutadan los siguientes comandos en la consola de Ubuntu:
-
-    $ sudo pip install tensorflow==0.12.0
-    $ sudo pip install gym==0.7.0
-    $ pip install atari-py==0.0.21
-    $ python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
-    $ sudo pip install Pillow
-    $ sudo pip install tqdm
+    
+    $ sudo apt-get install cmake
+    $ sudo apt-get install libsdl1.2-dev
+    $ sudo apt-get install libsdl-gfx1.2-dev
+    $ sudo apt-get install libsdl-image1.2-dev 
     
 En la carpeta raíz del subsistema `Ale-Atari-Width` se ejecutan los siguientes comandos en la consola de Ubuntu:
 
@@ -32,11 +30,12 @@ En la carpeta raíz del subsistema `Ale-Atari-Width` se ejecutan los siguientes 
 
 Para instalar el subsistema `DQN-tensorflow` se ejecutadan los siguientes comandos en la consola de Ubuntu:
 
-    $ sudo apt-get install cmake
-    $ sudo apt-get install libsdl1.2-dev
-    $ sudo apt-get install libsdl-gfx1.2-dev
-    $ sudo apt-get install libsdl-image1.2-dev  
-
+    $ sudo pip install tensorflow==0.12.0
+    $ sudo pip install gym==0.7.0
+    $ pip install atari-py==0.0.21
+    $ python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
+    $ sudo pip install Pillow
+    $ sudo pip install tqdm
 
 ## Ejecución
 
